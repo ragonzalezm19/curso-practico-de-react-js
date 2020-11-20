@@ -1,0 +1,55 @@
+Anotaciones:
+ - Que es?: Libreria o biblioteca de js para construir interfaces 
+ - Es declarativa, nos permites crear UI muy amigables y de forma sencilla
+ - Esta orientado en componentes
+ - Se aprende 1 vez y se usa en muchos lados
+ - Nace en el 2013 en FB para desarrollar su timeline
+ - Lo usan:
+  - RBNB
+  - Netflix
+  - Uber
+  - Whatsapp
+  - Platzi
+
+- Virtual DOM
+  - Copia fiel del DOM
+  - Ayuda a saber que nodos se deben actualizar y no actualizar todo el DOM
+
+- Clico de vida de un componente:
+  - los estados de un componente son: Montaje, Actualziación, Desmontaje y Manejo de Errores
+  - Montaje:
+    - Fase en el que el componente se crea cuunto a la lógica y los componentes internos y luego es insertado en el DOM
+  - Actualziación:
+    - Fase en el que el componente está al pendiente de cambios que pueden venir a través de un cambio en "state" o "props" esto en consecuencia realizan una acción dentro de un componente.
+  - Desmontaje:
+    - Fase en el que el componente "Muere" cuando nosotros no necesitamos un elemento de nuestra acplicacón, podemos pasar por este ciclo de vida y de esta forma eliminar el componente de la representacion que tiene en el DOM
+  - Manejo de Errores:
+     - Cuando nuestro código se ejecuta y tiene un error, podemos entrar en una fase donde se puede entender mejro qué está sucediendo con la aplicación.
+  - Algo que debemos tener en cuenta es que un componente NO debe pasar por tdas las fases, un componente puede ser montado y desmontado si pasar por la fase de actualziación o manejo de errores.
+  - Ahora que entendemos las fases que cumple el cliclo de vida en React vamos a entrar en detalle de cada uno de ellos para ver qué piezas de código se ejecutan y nos ayudarán a crear aplciaciones en React pasando por un cuclo de vida bien estrucutrado:
+     - Mondato:
+      - Constructor(): 
+        Este es el primer método al que se hace un llamado, aquí es donde se inicializan los métodos controladores, eventos del estado.
+      - getDerivedStateFromProps():
+        Este método se llama antes de presentarse en el DOM y nos permite actualizar el estado interno en respuesta a un cambio en las propiedades, es cosiderado un método de cidado, ya que su implementación puede causar errores sutiles.
+      - render():
+        Si queremos representar elementos en el DOM en este método es donde se escribe esta lógica, usualmente utilizamos JSX para trabajar y presentar nuestra aplicación
+      - ComponentDidMount():
+        Este método se llama inmediatamente que ha sido montado en el DOM, aquí es donde trabajamos con eventos que permitan interactuar con nuestro componente.
+    - Actualización:
+      - getDerivedStateFromPorps():
+        Este método es el primero en ejecutarse en la fase de actualziacón y funciona de la misma forma que en el montaje.
+      - shouldComponentUpdate():
+        Dentro de este método se puede controlar la fase de actualización, podemos devolvar un valor entre verdadero y falso si queremos actualziar o no el componente y es utilizado principalmente para optimización.
+      - render():
+        Se llama el método render que representa los ambios en el DOM
+      - componentDidUpdate():
+        Este método es invocado inmediatamente despues de que el componente se actualiza y recibe como argumentos las propiedades y el estado y es donde podemos mmanejar nustro componente
+    - Desmontado:
+      - componentWillUnmount():
+        Este método se llama justo antes de que el componente sea destrido o eliminado del DOM
+    - Manejo de Errores:
+      - getDerivedStateFromError():
+        Una vez que se lanza un error este es el primer método que se llama, el cual recibe el error como argumento y cualquier valor devuelto en este método es utilziado para actualizar el estado del componente
+      - componentDidCatch():
+        Este método es llamado después de lanzarse un error y pasa como argumento el error y la información representada sobre el error
